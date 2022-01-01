@@ -11,7 +11,7 @@ namespace ComicBookGallery.Controllers
         // GET: ComicBook
         public ActionResult Welcome()
         {
-            return Content("Welcome to the comic book gallery");
+            return View();
         }
     }
 }
