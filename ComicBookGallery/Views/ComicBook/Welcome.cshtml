@@ -1,39 +1,26 @@
 ﻿@{
-    Layout = null;
-    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Welcome screen";
+
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-        <h1>@ViewBag.SeriesTitle</h1>
-        <h2>Item @ViewBag.IssueNumber</h2>
-        <h3>Description</h3>
-        <div> @Html.Raw(ViewBag.Description)</div>
-        <h3>Artists: </h3>
-        @if (@ViewBag.Artists.Length > 0)
+<h1>@ViewBag.SeriesTitle</h1>
+<h2>Item @ViewBag.IssueNumber</h2>
+<h3>Description</h3>
+<div> @Html.Raw(ViewBag.Description)</div>
+<h3>Artists: </h3>
+@if (@ViewBag.Artists.Length > 0)
+{
+
+    <ul>
+        @foreach (string artist in ViewBag.Artists)
         {
-
-            <ul>
-                @foreach (string artist in ViewBag.Artists)
-                {
-                    <li> <pre> @artist </pre> </li>
-                }
-
-
-
-            </ul>
+            <li> <pre> @artist </pre> </li>
         }
-        else 
-        { 
-             <pre> Unknown </pre>
-        }
-    </div>
-</body>
-</html>
+    </ul>
+}
+else
+{
+    <pre> Unknown </pre>
+}
