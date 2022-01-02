@@ -25,5 +25,12 @@ namespace ComicBookGallery.Controllers
             
             return View(book);
         }
+
+        public ActionResult Index()
+        {
+            
+
+            return View(_commicBookRepository.GetComicBooks());
+        }
     }
 }
